@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  doctor_id: 1
+  patient_id: 1
+  content: MyText
+  time_stamp: MyString
+
+two:
+  doctor_id: 1
+  patient_id: 1
+  content: MyText
+  time_stamp: MyString

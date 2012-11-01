@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Doctor:</b>
+  <%= @judgement.doctor_id %>
+</p>
+
+<p>
+  <b>Patient:</b>
+  <%= @judgement.patient_id %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @judgement.content %>
+</p>
+
+<p>
+  <b>Time stamp:</b>
+  <%= @judgement.time_stamp %>
+</p>
+
+
+<%= link_to 'Edit', edit_judgement_path(@judgement) %> |
+<%= link_to 'Back', judgements_path %>

@@ -1,0 +1,88 @@
+<html>
+	<head>
+<script>
+$(function(){
+		   $(".menu li").click(function(){
+				var index = $(this).index();
+			   $(this).addClass("current").siblings().removeClass("current");
+		       $(".content li").eq(index).show().siblings().hide();
+		    })
+		    
+})
+</script>
+	</head>
+	<body>
+<center>
+<form method="get"><table class="rank-restrict">
+<tbody>
+	<tr>
+		<td>"按科室查看"<strong>:</strong></td>
+		<td><label><input type="checkbox" name="Checkbox"><a href="">内科</a></label>
+			<label><input type="checkbox" name="Checkbox"><a href="">外科</a></label>
+			<label><input type="checkbox" name="Checkbox"><a href="">心血管科</a></label>
+			<label><input type="checkbox" name="Checkbox"><a href="">妇产科</a></label>
+			<label><input type="checkbox" name="Checkbox"><a href="">眼科</a></label>
+			<label><input type="checkbox" name="Checkbox"><a href="">口腔</a></label>
+			<label><input type="checkbox" name="Checkbox"><a href="">胸外科</a></label>
+			<label><input type="checkbox" name="Checkbox"><a href="">神经外科</a></label>
+			<label><input type="checkbox" name="Checkbox"><a href="">神经内科</a></label>
+</td>
+</tr>
+
+<tr>
+<td class="rank-table1-td2">
+"按地区查看"
+<strong>:</strong></td>
+<td><label><input type="checkbox" name="Checkbox"><a href="">江苏</a></label>
+	<label><input type="checkbox" name="Checkbox"><a href="">北京</a></label>
+	<label><input type="checkbox" name="Checkbox"><a href="">陕西</a></label>
+	<label><input type="checkbox" name="Checkbox"><a href="">湖北</a></label>
+	<label><input type="checkbox" name="Checkbox"><a href="">河北</a></label>
+</td>
+</tr>
+<tr>
+<td class="rank-table1-td3">
+"按医院等级"
+<strong>:</strong></td>
+<td><label><input type="checkbox" name="Checkbox"><a href="">三级甲等</a></label>
+	<label><input type="checkbox" name="Checkbox"><a href="">三级乙等</a></label>
+	<label><input type="checkbox" name="Checkbox"><a href="">二级甲等</a></label>
+	<label><input type="checkbox" name="Checkbox"><a href="">二级乙等</a></label>
+</td>
+</tr>
+</tbody>
+</table>
+</form>
+<form>
+	<input type="button" name="Button" value="确定">
+</form>
+
+</center>
+<form>
+		 <div class="container">
+            <div class="menu">
+                  <ul class="menu-ul">
+                      <li class="current"><span>服务态度</span></li>
+                      <li><span>专业水平</span></li>
+                      <li><span>综合评价</span></li>
+                  </ul>
+			  </div>
+            <div class="content">
+                  <ul class="menu-ul"> 
+                      <li>
+					  <img src="/images/attitude.jpg" />
+                      </li>
+                      <li style="display:none">
+                          <img src="/images/level.jpg"/>
+                         
+                      </li>
+                      <li style="display:none">
+                       <img src="/images/combine.jpg" />
+                       
+                      </li>
+                  </ul>
+		  </div>
+      </div>
+</form>
+	</body>
+</html>

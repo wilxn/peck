@@ -1,0 +1,38 @@
+<div class="edit-men-doctor">
+<h1>Editing man</h1>
+<fieldset>
+	<legend>Please Edit</legend>
+		<div>
+			<label for="name">Name:</label><br>
+			<%= text_field_tag :name,params[:name] %>
+		</div>
+		<div>
+			<label for="password">Password:</label><br>
+			<%= password_field_tag :password,params[:password] %>
+                     </div>
+                     <div>
+                     	<label for="password_confirmation">Password Confirmation:</label><br>
+                     	<%= password_field_tag :passwrod_confirmation,params[:passwrod_confirmation] %>
+                     </div>
+                     <div>
+                     	<label for="idcard">Idcard:</label><br>
+                     	<%= text_field_tag :idcard,params[:idcard] %>
+                     </div>
+
+                     <div>
+                     	<label for="real_name">Real Name</label><br >
+                     	<%= text_field_tag :real_name,params[:real_name] %>
+                     </div>
+                     
+                     <div>
+                     	<label for="email" > Email</label><br>
+                     	<%= text_field_tag :email,params[:email] %>
+                     </div>
+		<div>
+			<%= submit_tag "Update" %>
+		</div>
+</fieldset>
+
+<%= link_to 'Show', @man %> |
+<%= link_to 'Back', men_path %>
+</div>

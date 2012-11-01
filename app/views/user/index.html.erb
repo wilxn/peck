@@ -1,0 +1,96 @@
+<html>
+	<head>
+		<script>
+				window.setInterval(onImage,1000);
+					function onImage()
+							{
+								var images = document.getElementById("aboutimg").getElementsByTagName("img");
+								for(i=0; i<images.length; i++)
+								{
+									if(images[i].className == "cur-display")
+									{
+										images[i].className = "cur-hide";
+										images[(i+1)%images.length].className = "cur-display";
+										var imgwidth = images[(i+1)%images.length].width;
+										var imgheight = images[(i+1)%images.length].height;
+										if(imgwidth>1.33 * imgheight && imgwidth>400)
+										{
+											images[(i+1)%images.length].width = 400;
+											images[(i+1)%images.length].height = 400*imgheight/imgwidth;
+										}
+										if(imgwidth<1.33 * imgheight && imgheight>300)
+										{
+											images[(i+1)%images.length].height = 300;
+											images[(i+1)%images.length].width = 300.0*imgwidth/imgheight;
+										}
+										break;
+									}
+								}
+							}
+		</script>
+	</head>
+	<body>
+		<div id="main">
+			<div id="mainbody"><center>
+				<table id="mainbody">
+					<tr><td valign="top" id="inform" class="fc">
+							<ul id="inform" title="通知公告">
+								<div id="informTitle" class="topTitle">
+								<img src="/images/inform.jpg" width="180"height="70">
+								</div>
+								<li><a href="#">公告一</a></li>
+								<li><a href="#">公告二</a></li>
+							</ul>
+						</td>
+						<td valign="top" id="main" class="fc">
+							<ul id="main">
+								<li id="about">
+								<h1 id="aboutTitle" class="topTitle">
+									<img src="/images/about.jpg" width="180" height="40">
+								</h1>
+								<ul id="aboutmain">
+									<li id="aboutimg">
+									<img src="/images/icc.jpg" onclick="onIamge()" class="cur-display" width=400 height=300>
+									<img src="/images/about1.jpg" onclick="onImage()" class="cur-hide" >
+									<img src="/images/about2.jpg" onclick="onImage()" class="cur-hide">
+									</li>
+									<li id="abouttxt">
+									<p style="margin-right:20px padding-top =20px"><strong>Peck-Icc</strong>是一个<br></p>
+									</li>
+								</ul>
+								<div class="clear"></div>
+								</li>
+								<li id="news">
+								<h1 id="newsTitle" class="topTitle">
+									<img src="/images/news.jpg" width="180"height="40">
+								</h1>
+								<ul id="newsmain">
+									<li>hot news</li>
+									<li>hot news</li>
+									<li>hot news</li>	
+									<br/>
+									<li>hot news</li>
+								</ul>
+								</li>
+							</ul>
+						</td>
+						<td valign="top" id="question" class="fc">
+							<ul id="question" title="常见问题">
+								<div id="newsTitle" class="topTitle">
+								<img src="/images/question.jpg" width="180" height="70">
+								</div>
+								<li><a href="#">问题一</a></li>
+								<li><a href="#">问题二</a></li>
+								<li><a href="#">问题三</a></li>
+							</ul>
+					</td></tr>
+			</table></center>
+			</div>
+			<div id="footer">
+				<div>
+					<p>版权所有东南大学-生物科学与医学工程学院 All Rights Reserved</p>
+				</div>
+				</div>
+			</div>
+		</body>
+	</html>

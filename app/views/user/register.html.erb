@@ -1,0 +1,67 @@
+<html>
+	<style>
+		div.lable{
+			float:left;
+			margin-left:20;
+			margin-right:5px;
+			width:100;
+			text-align:right;
+		}
+		input{
+			float:left;
+		}
+		form{
+			margin-left:200px;
+			margin-right:200px;
+			border:1px solid blue;
+		}
+		.cancel{
+			color:#F59;
+			text-align:right;
+		}
+	</style>
+	<body>
+		<div id="main">
+			<div class="clear"></div>
+			<div id="registerbody">
+				<center>
+				<form name="register" method="post" action="register.asp" onsubmit = "return validate(this)">
+					<h2 id="registerhead">Peck新用户注册</h2>
+					<div class="lable"><label for = "name">用户名：</label>
+						<div class="formelement">
+							<input type="text" onblur="validname(this)" class="required" size=30 id="name" placeholder="用户名必须是字母数字的组和"/>
+						</div>
+						<div id="name-tip" class="hide-tips">用户名必须是字母数字的组合</div>
+						<div class="clear"></div>
+						<div class="lable"><label for="password">密码：</label></div>
+						<div class="formelement">
+							<input type="password" onblur="validpassword(this)" class="required" size= 30 id="password" placeholder="密码长度必须大于6位"/>
+						</div>
+						<div id="pass" class="hide-tips">密码长度必须大于六位</div>
+						<div class="clear"></div>
+						<div class="lable"><label for="passwordcon">密码确认：</label></div>
+						<div class="formelement">
+							<input type="password" onblur="validpasswordCon(this)" class="required" size=30 id="passwordCon" placeholder="两次密码输入必须相同"/>
+						</div>
+						<div id="passcon" class="hide-tips">两次输入的密码必须相同</div>
+						<div class="clear"></div>
+						<div class="lable"><label for="mailaddr">邮箱：</label></div>
+						<div class="formelement">
+							<input type="text" onblur="validaddr(this)" class="required" size=30 id="mailaddr" placeholder="输入您的注册邮箱"/>
+						</div>
+						<div id="mail-tip" class="hide-tips">请输入正确的邮箱地址</div>
+						<div class="clear"></div>
+						<div class="formelement" style = "margin-left:200px;">
+							<input type="submit" name="submit" value="提交注册" size=30 id="submit"> 
+							<br/>
+							<a class="cancel" href ="/users/index">取消</a>
+						</div>
+						<div class="clear"></div>
+					</form>
+					</center>
+				</div>
+			</div>
+			</body>
+		</html>
+
+
