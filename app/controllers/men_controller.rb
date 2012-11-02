@@ -41,6 +41,7 @@ class MenController < ApplicationController
   # POST /men.xml
   def create
    # debugger
+   # flash.notice = "flash.notice"
     @man = Man.new(params[:man])
     
     isTrue = Man.test_idcard_by_realname(@man.idcard,@man.real_name)
@@ -59,7 +60,7 @@ class MenController < ApplicationController
       end
     end 
     else
-    redirect_to new_man_path,:alert => "invalid idcard and real name"
+    redirect_to new_man_path,flash[:alert] => "invalid idcard and real name"
     end
   end
 

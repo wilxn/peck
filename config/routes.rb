@@ -1,5 +1,7 @@
 Peck321::Application.routes.draw do
   
+  resources :informs
+
   resources :judgements
 
   resources :doctors,:men

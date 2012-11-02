@@ -1,61 +1,124 @@
 body{
-	background:url(/images/bg_tile.jpg);
+	background-color: #EEEEFF;
+	border-left-style: solid ;
+	border-right-style: solid ;
+	border-color:rgba(60,0,0,0.2);
+	border-width: 2.5px;
+	border-radius: 15px;
+	width:1000px;
+	padding-bottom: 5em;
+	margin:50px auto 0;	
+	margin-top: 0px;
+	box-shadow: 5px 7px 10px rgba(0,0,0,0.6)
+
+
 }
-div#main{
+#main{
 	width:1300;
 }
 #mainname{
-	padding-bottom:0px;
-	margin-bottom:0px;
-	margin-left:200px;
-	margin-right:200px;
-	background-image:url("/images/bk_header.jpg");
-	background-attachment:scroll;
-	background-repeat:repeat-x;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+	background-image: url("/images/bk_header.jpg");
+	background-attachment: scroll;
+	background-repeat: repeat-x;
 }
-#register{
-	margin-left:250;
-	font-size:80%;
+h1#mainname a{
+	color: #003376;
+	text-decoration: none;
+	font-family: "宋体";
 }
-#login{
-	margin-left:5;
-	margin-right:5;
-	font-size:80%;
+h1#mainname .mainhref{
+	float: right;
+	margin-right: 200px;
+	margin-top: 50px;
 }
 #navigation{
-	margin-left:200px;
-	margin-right:200px;
-	float:left;
-	background-image:url("/images/nav.jpg");
-	background-attachment:scroll;
-	background-repeat:repeat-x;
+	float: left;
+	background-attachment: scroll;
+	background-color: #CEFFDE;
+	background-repeat: repeat-x;
+	margin-top: 2px;
+}
+div.all-body{
+	background-color: #FFF9F9;
 }
 li.nav{
-	float:left;
-	list-style:none;
-	margin-right:20px;
-	width:100px;
-	height:36px;
-	text-align:center;
-	color:green;
-	padding-top:15px;
-	background-image:url("/images/nav.jpg");
-	background-attachment:scroll;
-	background-repeat:repeat-x;
+	float: left;
+	list-style: none;
+	width: 136px;
+	height: 36px;
+	text-align: center;
+	color: green;
+	padding-top: 5px;
+	background-image: url("/images/nav.jgp");
+	background-attachment: scroll;
+	background-repeat: repeat-x;
 }
 li a{
-	text-decoration:none;
+	text-decoration: none;
 }
 li.nav:hover{
-	background-image:url("/images/hovernav.jpg");
+	background-color: #9F99FF;
 	background-attachment:scroll;
-	background-repeat:repeat-x;
-	}
-.container{
-	background:url("/images/bg_tilt.jpg");
-	width:800px;
-	height:534px;
-	margin:50px auto 0;
+	border-radius: 8px;
+}
+
+.content{
+	background-color: #F4FFFF;
+	width: 800px;
+	border-radius: 12px;
+	box-shadow: 6px 6px 6px rgba(0,0,0,6);
+}
+.content ul{
+	width:760px;
+	height:500px;
+	list-style:none;
+}
+div#indx-body{
+	margin-bottom:5px;
+}
+div#index-main{
+	
+	float: right;
+	border:1px solid yellow;
+	word-break:break-all;
+	width:780px;
+	font-weight: large;
+	font-size: 20px;
+	line-height: 20px;
+	color:blue;
+	font-family: 宋体;
+
+}
+li#aboutimg{
+	float: left;
+	text-align: center;
+	width: 400px;
+	height: 300px;
+	margin-left: 100px;
+}
+
+div#aboutvideo{
+	width: 600px;
+	height: 500px;
+	border-radius: 12px;
+	border-style: bolid blue;
+	margin-left: 100px;
+}
+div#side{
+	float: left;
+	width: 12em;
+	background-color: #CCDDFF;
+	padding-bottom: 12em;
+	padding-top: 1em;
+	padding-left: 1em;
+}
+div.clear{
+	clear:both;
+}
+img.cur-hide{
+	display: none;
 }
 .menu{
 	width:800px;
@@ -91,112 +154,52 @@ li.nav:hover{
 	border-radius:12px;
 	text-shadow:2px 2px 2px #FFF;
 }
-.content{
-	background:#F9F9F9;
+.container{
 	width:800px;
-	height:500px;
-	border-radius:12px;
-	box-shadow:6px 6px 6px rgba(0,0,0,0,6);
+	height:534px;
+	margin:50px auto 0;
 }
-.content ul{
-	width:760px;
-	height:500px;
-	list-style:none;
-}
-.content li{
-	float:left;
-	width:960px;
-	height:500px;
-	margin-left:20px;
-	display:block;
-}
-.content img{
-	float:left;
-	width:620px;
-	margin:20px 30px;
-}
-.health-img{
-	width:920px;
-	height:320px;
-	margin:1px 0px;
-}
-.health-text{
-	margin:3px 5px;
-}
-table#mainbody{
-	margin-left:40px;
-}
-td#inform{
-	border:1px solid blue;
-	word-break:break-all;
-	width:300;
-}
-td#main{
-	border:1px solid blue;
-	word-break:break-all;
-	width:700;
-	font-weight:large;
-	font-size:20px;
-	line-height:20px;
-	color:blue;
-	font-family:宋体;
-}
-td#question{
-	border:1px solid blue;
-	word-break:bread-all;
-	width:300;
-}
-li#about{
-	list-style:none;
-}
-li#aboutimg{
-	float:left;
-	margin-right:20px;
-	border:1px solid blue;
-	text-align:center;
-	width:400px;
-	height:300px;
-}
-li#news{
-	list-style:none;
-}
-ul#aboutmain li{
-	list-style:none;
-}
-ul#newsmain li{
-	list-style:none;
-}
-ul#newsmain li:before{
-	content:url("/images/hot.jpg");
-}
-div#footer{
-text-align:center;
 
+
+div#footer{
+	text-align: center;
+	margin-bottom: 3px;
 }
-img.cur-hide{
-	display:none;
+div.edit-man-doctor{
+        width: 500px;
+        margin-left: 300px;
 }
-div.clear{
-	clear:both;
+
+div#register_form{
+        width: 500px;
+}
+#scrollBox2{
+	font-size:21px;
+	width:500px;
+	color:#0000CC;
+	font-weight:600;
+	line-height:22px;
+	height:66px;
+	overflow:hidden;
+	text-align:left;
+	margin-left: 120px;
+	border-style: double;
+	border-color: #CC99FF;
+}
+div.abouttxt-head h3{
+	font-size:22px;
+	text-indent: 10em;
+}
+div.abouttxt-head p{
+	font-size:15px;
+	text-indent: 20em;
+}
+div.healthtext{
+	margin-bottom: 20px;
 }
 div.display-tips{
 	color:red;
 }
 div.hide-tips{
 	display:none;
-}
-div.lable{
-	float:left;
-	margin-left:20;
-	margin-right:5px;
-	width:100;
-	text-align:right:
-}
-div.edit-man-doctor{
-	width: 500px;
-	margin-left: 300px;
-}
-
-div#register_form{
-	width: 500px;
 }

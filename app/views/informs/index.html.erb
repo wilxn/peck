@@ -1,0 +1,28 @@
+<% content_for :inform_index do %>
+  <%= link_to 'Show'%>
+<h1>Listing informs</h1>
+
+<table>
+  <tr>
+    <th>Content</th>
+    <th>Date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @informs.each do |inform| %>
+  <tr>
+    <td><%= inform.content %></td>
+    <td><%= inform.date %></td>
+    <td><%= link_to 'Show', inform %></td>
+    <td><%= link_to 'Edit', edit_inform_path(inform) %></td>
+    <td><%= link_to 'Destroy', inform, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Inform', new_inform_path %>
+<% end %>

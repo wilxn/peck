@@ -1,15 +1,17 @@
+<div class="content-body">
 <p id="notice"><%= notice %></p>
 
-<p>
+<div>
   <b>Name:</b>
   <%= @doctor.name %>
-</p>
+</div>
 
-<p>
+<div>
   <b>Id:</b>
   <%= @doctor.id %>
-</p>
+</div>
 
 
 <%= link_to 'Edit', edit_doctor_path(@doctor) %> |
 <%= link_to 'Back', doctors_path %>
+</div>
