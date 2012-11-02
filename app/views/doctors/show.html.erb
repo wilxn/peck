@@ -10,8 +10,28 @@
   <b>Id:</b>
   <%= @doctor.id %>
 </div>
-
+<div>
+	<b>Id card:</b>
+	<%= @doctor.idcard %>
+</div>
+<div>
+	<b>Image:</b>
+	<%= image_tag(@doctor.image_url,:class => 'show_image') %>
+	</div>
+<div>
+	<b>Skill:</b>
+	<%= @doctor.skill %>
+</div>
+<div>
+	<b>Introduction:</b>
+	<%= @doctor.introduction %>
+</div>
+<div>
+	<b>Email:</b>
+	<%= @doctor.email %>
+</div>
 
 <%= link_to 'Edit', edit_doctor_path(@doctor) %> |
 <%= link_to 'Back', doctors_path %>
 </div>
+

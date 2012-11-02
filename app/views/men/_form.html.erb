@@ -1,3 +1,63 @@
+<script type="text/javascript">
+function validname(element){
+    var reg = /^[a-zA-Z0-9]*?$/;
+    if (reg.test(element.value))
+  {
+    document.getElementById("name-tip").className = "hide-tips";
+    return true;
+  }
+  else
+  {
+    document.getElementById("name-tip").className = "display-tips";
+    return false;
+  }
+}
+function validIdcard(element){
+  var reg=/^[1-9]([0-9]{14}|[0-9]{17})$/;
+ if (reg.test(element.value))
+  {
+    document.getElementById("idc").className = "hide-tips";
+    return true;
+  }
+  else
+  {
+    document.getElementById("idc").className = "display-tips";
+    return false;
+  }
+}
+function validpassword(element){
+    if (element.value.length>=6)
+  {
+    document.getElementById("pass").className = "hide-tips";
+    return true;
+  }
+  else
+  {
+    document.getElementById("pass").className = "display-tips";
+    element.value = "";
+    return false;
+  }
+}
+
+function validpasswordCon(element){
+  var pass = document.getElementById("password");
+    if (element.value == pass.value)
+  {
+    document.getElementById("passcon").className = "hide-tips";
+    return true;
+  }
+
+  else
+  {
+    document.getElementById("passcon").className = "display-tips";
+    document.getElementById("password").focus();
+    document.getElementById("password").value = "";
+    element.value = "";
+    return false;
+  }
+}
+
+</script>
 <%= form_for(@man) do |f| %>
   <% if @man.errors.any? %>
     <div id="error_explanation">
@@ -14,24 +74,34 @@
   <fieldset>
 <legend>Please Register</legend>
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :name,'姓名:' %><br />
+    <%= f.text_field :name ,:id => "name" ,:size => 40 ,:class=>"required",:placeholder => "用户名必须是字母数字的组和",:onblur =>"validname(this)"%>
+    <div id="name-tip" class="hide-tips">用户名必须是字母数字的组合</div>
+    <div class="clear"></div>
   </div>
   <div class="field">
     <%= f.label :password ,'Password' %><br />
-    <%= f.password_field :password, :size => 40 %>
+    <%= f.password_field :password, :size => 40,:onblur => "validpassword(this)" ,:class => "required",:id=>"password",:placeholder=> "密码长度必须大于6位"%>
+    <div id="pass" class="hide-tips">密码长度必须大于6位"</div>
+    <div class="clear"></div>    
   </div>
   <div class="field">
     <%= f.label :password_confirmation,'Confirmation' %><br />
-    <%= f.password_field :password_confirmation, :size => 40 %>
+    <%= f.password_field :password_confirmation, :size => 40 ,:onblur=>"validpasswordCon(this)" ,:class=>"required" ,:id=>"passwordCon" ,:placeholder=>"两次密码输入必须相同"%>
+    <div id="passcon" class="hide-tips">两次输入的密码必须相同</div>
+    <div class="clear"></div>
+
   </div>
   <div class="field">
     <%= f.label :idcard,'ID card' %><br />
-    <%= f.text_field :idcard,:size => 40 %>
+    <%= f.text_field :idcard,:size => 40, :onblur => "validIdcard(this)",:class => "required",:id=>"idcard",:placeholder =>"输入正确的身份证号"%>
+    <div id="idc" class="hide-tips">无效的身份证号</div>
   </div>
+
   <div class="field">
     <%= f.label :real_name,'Real Name' %><br />
-    <%= f.text_field :real_name,:size => 40 %>
+    <%= f.text_field :real_name,:size => 40 ,:onblur =>"validRealname(this)",:class=>"required",:id=>"real_name",:placeholder=>"输入真实姓名"%>
+    <div id="real" class="hide-tips">真实姓名和身份证号不符</div>
   </div>
   <div class="actions">
     <%=  f.submit  %>

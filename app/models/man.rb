@@ -27,7 +27,7 @@ class Man < ActiveRecord::Base
 
     def Man.test_idcard_by_realname(idcard,realname)
       isTrue = false
-      id_realname = Hash["wangxin" => "61012519920911084X" ,"huangzhiyong" => "362524199210014017"]
+      id_realname = Hash["wangxin" => "610125199209110840" ,"huangzhiyong" => "362524199210014017","yushuangxin" => "220122198602201370","sunxingchen"=>"123456789000000000"]
       expected_name = id_realname.index(idcard)
       if expected_name != nil
         if realname == expected_name

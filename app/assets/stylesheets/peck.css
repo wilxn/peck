@@ -203,3 +203,10 @@ div.display-tips{
 div.hide-tips{
 	display:none;
 }
+div.content-body{
+	margin-left: 100px;
+}
+div.content-body .show_image{
+	height: 100px;
+	width: 100px;
+}
