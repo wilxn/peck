@@ -3,18 +3,25 @@ Peck321::Application.routes.draw do
   resources :informs
 
   resources :judgements
-
+  resources :diseases
   resources :doctors,:men
-  get "doctros/edit"
+  controller :doctors do
+  get 'search_list' => :search_list,:as => :search_list
+  end
+  controller :diseases do
+    get 'indexer' => :indexer,:as => :indexer
+  end
+  get "doctors/edit"
   get 'admin' => 'admin#index'
   post 'men/new'
- 
+
   controller :sessions do
     get 'login' => :new
     post 'login' => :create
     delete 'logout' => :destroy
   end
   
+  post "diseases/search"
   get "user/index"
   get "user/rank"
   get "user/diagnose"

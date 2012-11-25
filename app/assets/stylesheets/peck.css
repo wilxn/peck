@@ -18,8 +18,7 @@ body{
 }
 #mainname{
 	padding-bottom: 0px;
-	margin-bottom: 0px;
-	background-image: url("/images/bk_header.jpg");
+	background-image: url("/assets/bk_header.jpg");
 	background-attachment: scroll;
 	background-repeat: repeat-x;
 }
@@ -68,7 +67,7 @@ li.nav:hover{
 	background-color: #F4FFFF;
 	width: 800px;
 	border-radius: 12px;
-	box-shadow: 6px 6px 6px rgba(0,0,0,6);
+	box-shadow: 6px 6px 6px rgba(0,0,0,0.6);
 }
 .content ul{
 	width:760px;
@@ -88,7 +87,7 @@ div#index-main{
 	font-size: 20px;
 	line-height: 20px;
 	color:blue;
-	font-family: 宋体;
+	font-family: serif;
 
 }
 li#aboutimg{
@@ -209,4 +208,89 @@ div.content-body{
 div.content-body .show_image{
 	height: 100px;
 	width: 100px;
+}
+div.indexer p{
+	margin-left: 30px;
+}
+div.diagnose h2{
+	color: #338822;
+	font-size: 150%;
+	font-family: monospace;
+}
+div.diagnose{
+	margin-left: 220px;
+	padding-top: 5em;
+}
+.button{
+	display: inline-block;
+	zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
+	*display: inline;
+	vertical-align: baseline;
+	margin: 0 2px;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 14px/100% Arial, Helvetica, sans-serif;
+	padding: .5em 2em .55em;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);s
+}
+#search_first{
+	color: #2244EE;
+	font-weight: bold;
+	font-size: 90%;  
+	padding: 5px;  
+	padding-top: .55em;
+	padding-bottom: .55em;
+	margin: 10px;  
+	outline: none;  
+	overflow:hidden;  
+	border-radius: 5px;  
+	background: #fafafa;  
+	border: 1px solid #ddd;  
+	-moz-box-shadow: inset 1px 1px 10px rgba(0,0,0,0.1);  
+	-webkit-box-shadow: inset 1px 1px 10px rgba(0,0,0,0.1);  
+	box-shadow: inset 1px 1px 10px rgba(0,0,0,0.1);  
+	-webkit-transition: all .3s;  
+	-moz-transition: all .3s;  
+	-o-transition: all .3s;  
+	width: 150px;  
+
+}
+#search_first:focus{  
+    width: 230px;  
+}  
+#search_first_submit:hover{
+	position: relative;
+	top: 1px;
+}
+#search_first_submit{
+	display: inline-block;
+	zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
+	*display: inline;
+	vertical-align: baseline;
+	margin: 0 2px;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 14px/100% Arial, Helvetica, sans-serif;
+	padding: .5em 2em .55em;
+
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	border-radius: .5em;
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+
+
+	color: #e8f0de;
+	border: solid 1px #538312;
+	background: #64881e;
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#7db72f', endColorstr='#4e7d0e');
+
 }

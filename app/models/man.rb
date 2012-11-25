@@ -1,9 +1,5 @@
 class Man < ActiveRecord::Base
-
-    
-
 	validates :name,:presence => true, :uniqueness => true
-
 	validates :password,:confirmation => true
 	attr_accessor :password_confirmation
 	attr_reader :password
@@ -11,6 +7,10 @@ class Man < ActiveRecord::Base
 
     has_one :doctor, :dependent => :destroy
     has_many :judgements
+
+    searchable do
+      text :name,:email,:id
+    end
 
     def Man.getManbyId(id)
       man = find_by_id(id)

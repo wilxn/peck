@@ -2,7 +2,11 @@ class MenController < ApplicationController
   # GET /men
   # GET /men.xml
   def index
-    @men = Man.order(:name)
+    @sea = Man.search do
+     fulltext params[:search]
+    end
+    @men = @sea.results
+   # @men = Man.order(:name)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,7 +44,7 @@ class MenController < ApplicationController
   # POST /men
   # POST /men.xml
   def create
-   # debugger
+   
    # flash.notice = "flash.notice"
     @man = Man.new(params[:man])
     

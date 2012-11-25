@@ -1,6 +1,5 @@
 class AddSaltToMen < ActiveRecord::Migration
   def change
-    add_column :men, :salt, :string
     add_column :men, :idcard, :string
     add_column :men, :real_name,:string
     add_column :doctors,:idcard,:string

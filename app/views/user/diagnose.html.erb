@@ -1,10 +1,11 @@
-<style>
-	.container h1{
-		color:#F26;
-		font-style:italic;
-		font-size:200
-	}
-</style>
 <div class="container">
-	<h1>Sorry,this part has not be fineshed!</h1>
-</div>
+	<div class="diagnose">
+		<h2></h2>
+		<%= form_tag indexer_path,:method => :get do %>
+		<p>
+			<%= text_field_tag :search,params[:search] , :id => "search_first"  %>
+			<%= submit_tag "search",:name => nil ,:id => "search_first_submit"%>
+		</p>
+		<% end %>
+	</div>
+</div>  

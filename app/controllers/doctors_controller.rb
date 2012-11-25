@@ -80,4 +80,11 @@ class DoctorsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def search_list
+    @search = Doctor.search do
+      fulltext params[:search]
+    end
+    @results = @search.results
+
+  end
 end

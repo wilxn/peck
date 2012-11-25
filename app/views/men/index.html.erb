@@ -1,5 +1,10 @@
 <h1>Listing men</h1>
-
+<%= form_tag men_path,:method => :get do %>
+  <p>
+  <%= text_field_tag :search,params[:search] %>
+  <%= submit_tag "search",:name => nil %>
+  </p>
+<% end %>
 <table>
   <tr>
     <th>Name</th>
@@ -8,10 +13,9 @@
     <th></th>
     <th></th>
   </tr>
-
-<% @men.each do |man| %>
+  <% @men.each do |man| %>
   <tr>
-    <td><%= man.name %></td>
+       <td><%= man.name %></td>
     <td><%= man.id %></td>
     <td><%= link_to 'Show', man %></td>
     <td><%= link_to 'Edit', edit_man_path(man) %></td>

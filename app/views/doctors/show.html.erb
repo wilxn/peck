@@ -1,6 +1,10 @@
 <div class="content-body">
 <p id="notice"><%= notice %></p>
-
+<ul>
+  <%= form_tag search_list_path, :method => :get do %>
+    <%= text_field :search,params[:search] %>
+    <%= submit_tag "search" %>
+  <% end%>
 <div>
   <b>Name:</b>
   <%= @doctor.name %>
