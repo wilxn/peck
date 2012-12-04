@@ -7,7 +7,8 @@ class UserController < ApplicationController
 
   def diagnose
   end
-  
+  def medicine
+  end
   def evaluate
   end
 

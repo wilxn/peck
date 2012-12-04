@@ -6,8 +6,8 @@ Peck321::Application.configure do
   # since you don't have to restart the web server when you make code changes.
 
   #add ruby-debug to debug
-  config.breakpoint_server = false
-  #require "ruby-debug"
+  config.breakpoint_server = true
+  require "ruby-debug"
 
   config.cache_classes = false
 

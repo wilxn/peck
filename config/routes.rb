@@ -10,6 +10,12 @@ Peck321::Application.routes.draw do
   end
   controller :diseases do
     get 'indexer' => :indexer,:as => :indexer
+    get 'previous' => :previous,:as => :previous
+    get 'next' => :next, :as => :next
+    get 'initpage' => :initpage,:as => :initpage
+  end
+  controller :medicine do
+    get 'index' => :index,:as => :index
   end
   get "doctors/edit"
   get 'admin' => 'admin#index'
@@ -20,9 +26,9 @@ Peck321::Application.routes.draw do
     post 'login' => :create
     delete 'logout' => :destroy
   end
-  
   post "diseases/search"
   get "user/index"
+  get "user/medicine"
   get "user/rank"
   get "user/diagnose"
   get "user/evaluate"

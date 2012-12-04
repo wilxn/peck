@@ -1,0 +1,12 @@
+<div class="container">
+	<div class="indexer">
+<%= form_tag index_path,:method => :get do %>
+  <p>
+  <%= text_field_tag :search,params[:search] ,:id => "search_first" ,:placeholder => "输入药名、厂家、治疗症状等"%>
+  <%= submit_tag "search",:name => nil ,:id => "search_first_submit"%>
+<% end %>
+<ul>
+    <label>找到约</label>###<label>个结果</label>
+</ul>
+</div>
+</div>

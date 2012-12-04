@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
-
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'paginate'
@@ -37,8 +36,8 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'linecache19',:git =>'git://github.com/mark-moseley/linecache'
-# gem 'ruby-debug-base19x', '~> 0.11.30.pre4'
-# gem 'ruby-debug19'
-# gem 'ruby-debug19', :require => 'ruby-debug'
+ gem 'linecache19',:git =>'git://github.com/mark-moseley/linecache'
+ gem 'ruby-debug-base19x', '~> 0.11.30.pre4'
+ gem 'ruby-debug19'
+ gem 'ruby-debug19', :require => 'ruby-debug'
 

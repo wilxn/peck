@@ -1,9 +1,9 @@
 <div class="container">
 	<div class="diagnose">
 		<h2></h2>
-		<%= form_tag indexer_path,:method => :get do %>
+		<%= form_tag initpage_path,:method => :get do %>
 		<p>
-			<%= text_field_tag :search,params[:search] , :id => "search_first"  %>
+			<%= text_field_tag :search,params[:search] , :id => "search_first",:placeholder =>"请输入您的不适表现"%>
 			<%= submit_tag "search",:name => nil ,:id => "search_first_submit"%>
 		</p>
 		<% end %>

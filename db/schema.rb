@@ -11,17 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20123024720491) do
+ActiveRecord::Schema.define(:version => 20123024720492) do
 
   create_table "diseases", :force => true do |t|
-    t.string   "name"
-    t.text     "symp"
-    t.text     "signal"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.text     "defi"
-    t.text     "factor"
-    t.text     "divi"
+    t.string "name"
+    t.text   "symp"
+    t.text   "signal"
+    t.text   "defi"
+    t.text   "factor"
+    t.text   "divi"
   end
 
   create_table "doctors", :force => true do |t|
@@ -52,6 +50,14 @@ ActiveRecord::Schema.define(:version => 20123024720491) do
     t.string   "time_stamp"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "medicines", :force => true do |t|
+    t.string   "name"
+    t.text     "factory"
+    t.text     "indtruction"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "men", :force => true do |t|
