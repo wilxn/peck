@@ -1,3 +1,4 @@
+require 'will_paginate/array'
 class DiseasesController < ApplicationController
   def initpage
     cookies[:current_page] = 1
@@ -5,6 +6,7 @@ class DiseasesController < ApplicationController
     redirect_to indexer_path
   end
   def indexer
+      cookies[:play] = 0
       params[:search] = cookies[:search]
       @search = Disease.search do
       fulltext cookies[:search] do
@@ -17,7 +19,7 @@ class DiseasesController < ApplicationController
         #:signal,:symp,:defi,:factor,:divi,:name
       end 
       @page = cookies[:current_page].to_i
-      paginate :page => @page,:per_page => 10 
+#      paginate :page => @page,:per_page => 10 
     end
     @search.hits.each do |hit|
       puts "hit:"
@@ -25,7 +27,7 @@ class DiseasesController < ApplicationController
               puts "  " + highlight.format { |word| "*#{word}*" }
              end
     end
-    @results = @search.results
+    @results = @search.results.paginate(:page => params[:page],:per_page => 5)
     @totals = @search.total
     @total_pages = @results.total_pages
     cookies[:totals] = @totals
@@ -44,6 +46,8 @@ class DiseasesController < ApplicationController
 #  end
   end
   def research
+    cookies[:play] = 1
+    params[:search] = cookies[:search]
     @docIds = cookies[:docId].split(":")
     @docTotals = cookies[:totals].to_i
     if @docTotals == 1
@@ -51,13 +55,14 @@ class DiseasesController < ApplicationController
       @results = Array.new(1){|i|
         Disease.getDiseasebyId(@docIds[0].to_i)
       }
+      @results = @results.paginate(:page => params[:page],:pre_page => 5)
       @totals = @results.length
       return 
     end
     factor = (@docTotals/2).to_i
     keyword = File.open("/home/wilxn/peck-3.2.1/app/controllers/data.txt")
     @keywords = keyword.readlines[0].split("#")
-    @keywords.delete_at(@keywords.length)
+    @keywords.delete_at(@keywords.length - 1)
    # @keywords = Array.new(4)
    # @keywords = ["c","b","a","s"]
     @searchbyKeywords = Array.new(@keywords.length){|i|
@@ -104,6 +109,12 @@ class DiseasesController < ApplicationController
       Disease.getDiseasebyId(@docIds[i])
     }
     @mainkeyword = @keywords[keyId]
+    if @mainkeyword == nil
+      flash[:notice] = "can't to make differrence"
+      @totals = @results.length
+      @results = @resultsInit.paginate(:page => [:page],:per_page => 5)
+      return
+    end
     if cookies[:status] == "1" 
       @yesKeyDocs = @yesDocIds[keyId]
       @results = Array.new(@yesKeyDocs.length){|i|
@@ -116,6 +127,7 @@ class DiseasesController < ApplicationController
       }
       cookies[:docId] = @docIds.join(":")
       cookies[:status] = 2
+      cookies[:play] = 0
     else
       if cookies[:status] =="0"
         @noKeyDocs = @noDocIds[keyId]
@@ -129,22 +141,26 @@ class DiseasesController < ApplicationController
         }
         cookies[:docId] = @docIds.join(":")
         cookies[:status] = 2
+        cookies[:play] = 0
       else
         @results = @resultsInit
       end
     end
-    @results
     @totals = @results.length
+    @results = @results.paginate(:page => params[:page],:per_page => 5)
     cookies[:totals] = @totals
   end
   def yes
     @status = 1
     cookies[:status] = @status
+    cookies[:search] += ' ' + cookies[:searchtmp] 
+    cookies[:play] = 0
     redirect_to research_path
   end
   def no
     @status = 0
     cookies[:status] = @status
+    cookies[:play] = 0
     redirect_to research_path
   end
   def previous

@@ -1,52 +1,45 @@
 <script language="javascript">
-function firm()
-{
-  if(confirm("您是否有###症状"))
-    {
-        location.href="/diseases/yes";    
-    }
-    else
-    {
-      alert("你按了取消，那就是返回false");
-    }
-}
 </script>
 
 <div class="container">
-	<div class="indexer">
-<%= form_tag initpage_path,:method => :get do %>
-  <%= text_field_tag :search,params[:search] ,:id => "search_first" ,:placeholder => "请输入您的不适表现"%>
-  <%= submit_tag "search",:name => nil ,:id => "search_first_submit"%>
-<% end %>
-<%= link_to "再诊断",research_path %>
-<div class="ask" >
-  <h3>您是否出现:</h3>
-  <%= @mainkeyword %>
-  <%= link_to 'yes',yes_path %>
-  <%= link_to 'no',no_path %>
-</div>
-<% if flash[:notice] %>
-  <div class="notice"><%= flash[:notice] %></div>
-  <% end %>
-
-<ul>
-	<label>找到约</label><%= @totals %><label>个结果</label>
-           <% if @results != nil 
+  <div class="indexer">
+      <%= form_tag initpage_path,:method => :get  do %>
+      <%= text_field_tag :search,params[:search] ,:class => "search_first" ,:placeholder => "请输入您的不适表现"%>
+      <%= submit_tag "search",:name => nil ,:class => "search_first_submit"%>
+      <% end %>
+      <%= form_tag research_path,:method => :get do %>
+      <% submit_tag "research", :id => "research" ,:class => "search_first_submit" %>
+      <% end %>
+      <%  if cookies[:play].to_i == 1 && flash[:notice] == nil%>
+      <div id="ask_sym" style="display:" >
+      <p>您是否出现:</p>
+      <h1><%= @mainkeyword %></h1>
+      <div class="yes-or-no"><%= link_to '有',yes_path %></div>
+      <div class ="yes-or-no"><%= link_to '没有',no_path %></div>
+    </div>
+      <% end %>
+      
+    </div>
+    <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
+    <ul>
+      <label>找到约</label><%= @totals %><label>个结果</label>
+      <% if @results != nil 
         @results.each do |result| %>
-  	<li ><%= link_to result.name, result %>:<%= result.defi %>
-  		<strong>症状</strong>:<%= result.symp %>
-    	</li>
-    	<% end %>
-            <% else %>
+        <li ><%= link_to result.name, result %>:<%= result.defi %>
+          <strong>症状</strong>:<%= result.symp %>
+        </li>
+        <% end %>
+        <% else %>
+      </ul>
       <p>没有找到匹配结果</p>
       <% end %>
-
-</ul>
-</div>
-<p><label>当前为第</label><%= cookies[:current_page] %><label>页.</label>
-</p>
-  <div>
-  <%= link_to 'Previous',previous_path %>
-  <%= link_to 'Next',next_path %>
-</div>
-</div>
+      <div class="apple_pagination">
+        <div clas="page_info">
+          <%= page_entries_info @results %>
+        </div>
+        <%= will_paginate @results, :container => false %>
+      </div>
+    </div>
+  </div>  
