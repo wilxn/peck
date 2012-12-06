@@ -11,6 +11,7 @@ function firm()
     }
 }
 </script>
+
 <div class="container">
 	<div class="indexer">
 <%= form_tag initpage_path,:method => :get do %>
@@ -24,24 +25,28 @@ function firm()
   <%= link_to 'yes',yes_path %>
   <%= link_to 'no',no_path %>
 </div>
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+
 <ul>
 	<label>找到约</label><%= @totals %><label>个结果</label>
-  	<% @results.each do |result| %>
+           <% if @results != nil 
+        @results.each do |result| %>
   	<li ><%= link_to result.name, result %>:<%= result.defi %>
   		<strong>症状</strong>:<%= result.symp %>
     	</li>
     	<% end %>
+            <% else %>
+      <p>没有找到匹配结果</p>
+      <% end %>
+
 </ul>
 </div>
 <p><label>当前为第</label><%= cookies[:current_page] %><label>页.</label>
 </p>
-  <% if flash[:notice] %>
-  <div class="notice"><%= flash[:notice] %></div>
-  <% end %>
-<div>
+  <div>
   <%= link_to 'Previous',previous_path %>
   <%= link_to 'Next',next_path %>
-
-  
 </div>
 </div>

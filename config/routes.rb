@@ -13,10 +13,14 @@ Peck321::Application.routes.draw do
     get 'previous' => :previous,:as => :previous
     get 'next' => :next, :as => :next
     get 'initpage' => :initpage,:as => :initpage
+    get 'yes' => :yes
+    get 'no' => :no
+    get 'research' => :research,:as => :research
   end
   controller :medicine do
     get 'index' => :index,:as => :index
   end
+  get 'diseases/yes'
   get "doctors/edit"
   get 'admin' => 'admin#index'
   post 'men/new'

@@ -1,4 +1,9 @@
 class Disease < ActiveRecord::Base
+  has_many :keyword
+  def Disease.getDiseasebyId(id)
+    disease = find_by_id(id)
+    disease
+  end
   searchable do
     text :symp,:stored => true
     text :name,:stored => true
