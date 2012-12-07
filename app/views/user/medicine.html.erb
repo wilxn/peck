@@ -2,8 +2,8 @@
 	<div class="diagnose">
 	<%= form_tag index_path,:method => :get do %>
 		<p>
-			<%= text_field_tag :search,params[:search] , :id => "search_first",:placeholder =>"输入药名、厂家、治疗症状等"%>
-			<%= submit_tag "search",:name => nil ,:id => "search_first_submit"%>
+			<%= text_field_tag :search,params[:search] , :class=> "search_first",:placeholder =>"输入药名、厂家、治疗症状等"%>
+			<%= submit_tag "search",:name => nil ,:class => "btn btn-primary"%>
 		</p>
 		<% end %>
 	</div>

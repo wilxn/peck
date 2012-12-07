@@ -51,7 +51,7 @@ class DiseasesController < ApplicationController
     @docIds = cookies[:docId].split(":")
     @docTotals = cookies[:totals].to_i
     if @docTotals == 1
-      flash[:notice] = "This is the only one disease.you can't do research!"
+      flash[:notice] = "This is the only disease.you can't do research!"
       @results = Array.new(1){|i|
         Disease.getDiseasebyId(@docIds[0].to_i)
       }
@@ -153,7 +153,11 @@ class DiseasesController < ApplicationController
   def yes
     @status = 1
     cookies[:status] = @status
+    if cookies[:search] == nil
+      cookies[:search] = cookies[:searchtmp]
+    else
     cookies[:search] += ' ' + cookies[:searchtmp] 
+    end
     cookies[:play] = 0
     redirect_to research_path
   end

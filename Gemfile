@@ -11,6 +11,7 @@ group :development do
   gem 'sunspot_solr'
 end
 gem 'progress_bar'
+gem "twitter-bootstrap-rails"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

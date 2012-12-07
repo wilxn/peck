@@ -5,26 +5,31 @@
   <div class="indexer">
       <%= form_tag initpage_path,:method => :get  do %>
       <%= text_field_tag :search,params[:search] ,:class => "search_first" ,:placeholder => "请输入您的不适表现"%>
-      <%= submit_tag "search",:name => nil ,:class => "search_first_submit"%>
+      <%= submit_tag "search",:name => nil ,:class => "btn btn-primary"%>
       <% end %>
       <%= form_tag research_path,:method => :get do %>
-      <% submit_tag "research", :id => "research" ,:class => "search_first_submit" %>
+      <% submit_tag "research", :id => "research" ,:class => "badge badge-info" %>
       <% end %>
       <%  if cookies[:play].to_i == 1 && flash[:notice] == nil%>
+      <div class="row-fluid">
+        <div class="span8 offset2" >
       <div id="ask_sym" style="display:" >
       <p>您是否出现:</p>
       <h1><%= @mainkeyword %></h1>
-      <div class="yes-or-no"><%= link_to '有',yes_path %></div>
-      <div class ="yes-or-no"><%= link_to '没有',no_path %></div>
+      <% cookies[:searchtmp] = @mainkeyword %>
+      <div class="btn btn-success  offset1"><%= link_to '有',yes_path %></div>
+      <div class ="btn  offset1"><%= link_to '没有',no_path %></div>
     </div>
+    </div>
+  </div>
       <% end %>
-      
-    </div>
-    <% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>
+          <% if flash[:notice] %>
+          <div class="row-fluid">
+    <div class="notice span6 offset2"><%= flash[:notice] %></div>
     <% end %>
+  </div>
     <ul>
-      <label>找到约</label><%= @totals %><label>个结果</label>
+      <label>找到约<%= @totals %>个结果</label>
       <% if @results != nil 
         @results.each do |result| %>
         <li ><%= link_to result.name, result %>:<%= result.defi %>

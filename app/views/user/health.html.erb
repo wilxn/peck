@@ -1,141 +1,52 @@
-<style>
-.menu{
-	width:800px;
-	height:34px;
-	margin-left: -100px;
-}
-div.menu ul{
-	list-style:none;
-	width:1220px;
-	height:34px;
-	margin:0 auto;
-}
-.menu li.current{
-	background-position:0 0;
-}
-.content{
-	background:#F9F9F9;
-	margin-left: -90px;
-	margin-bottom: 20px;
-	width:980px;
-	border-radius:12px;	
-	box-shadow:-6px -3px 6px rgba(0,0,0,0.6);
-}
-.content ul{
-	width:760px;
-	height:500px;
-	list-style:none;
-}
-.searchdisease{
-	color: #8F2;
-	font-weight:700;
-	font-size:130%;
-}
-.content li{
-	float:left;
-	width:800px;
-	height:500px;
-	margin-left:0px;
-	display:none;
+<script type="text/javascript">
+</script>
+<style type="text/css">
+.carousel-inner img{
+	width: 500px;
+	height: 300px;
 }
 </style>
-<script>
-	$(function(){
-		$(".menu li").click(function(){
-		var index = $(this).index();
-		$(this).addClass("current").siblings().removeClass("current");
-		$(".content li").eq(index).show().siblings().hide();
-		 })
-	})
-</script>
-<center>
-<form class="searchdisease">
-	<label>搜索项<strong>:</strong></label>
-	<label><input type="textarea" name="Textarea"></label> 
-	<label><input type="button" onclick="javascript:alert('Sorry,this part has not be finished')" name="Sure" value="确定"></label>
-</form>
-</center>
-<form>
-<div class="container">
-	<div class="menu">
-		<ul>
-			<li class="current"><span>疾病</span></li>
-			<li><span>饮食</span></li>
-			<li><span>运动</span></li>
-			<li><span>心理</span></li>
+<div class="row-fluid" style="margin-top:60px">
+	<div class="span2 ">
+		<!--<%= yield :inform_index %> 
+		<%= link_to 'New Inform', new_inform_path %> -->
+		<!--Sidebar content-->
+		<ul class="nav nav-tabs nav-stacked">
+			<li><a href="#">运动</a></li>
+			<li><a href="#">饮食</a></li>
+			<li><a href="#">心理</a></li>
+			<li><a href="#">疾病</a></li>
 		</ul>
+		<form class="navbar-search pull-left" >
+  			<input type="text" class="search-query" placeholder="Search" style="width:150px">
+		</form>
 	</div>
-	<div class="content">
-		<ul>
-			<li><div class="health-text-first">
-				<table>
-				<h2>心血管科<strong>:</strong><1.XXX></p></h2>
-				<tr><h3>简介</h3>
-				<p></p></tr>
-				<tr><h3>起因</h3>
-				<p></p></tr>
-				<tr><h3>注意调养</h3>
-				<p></p></tr>
-				</table>
-		                  </div>
-			</li>
-			<li><div class="health-text"							<strong>1、百果之宗——梨</strong>
-				<p>梨又被称作快果、玉乳，因鲜嫩多汁被称为“天然矿泉水”。具有清热解毒、生津润燥、清心降火的作用。对肺、支气管及上呼吸道有相当好的滋润功效，还可帮助消化、促进食欲，并有良好的解热利尿作用。每天吃上一到两个梨可有效缓解秋燥。</p>
-				<strong>2、大夫第一药——苹果</strong>
-				<p>苹果又被称为萍婆，其性味甘凉，具有补脾气、养胃阴、生津解渴、润肺悦心的功效，被称为心血管的健康保护神。多食用可以改善呼吸系统及肺的功能。工作紧张之余闻闻苹果的清香，还能提神醒脑、缓解紧张的情绪!</p>
-				<strong>3、甜腻美味——柿子</strong>
-				<p>柿子味甘涩，性寒。其所含的维生素及糖分要高出一般水果一到两倍。可以养肺护胃，清除燥火，经常食用能够补虚、止咳、利肠、除热。空腹食柿子易患胃柿石症，所以最好饭后食用，尽量少食柿皮。</p>
-				<strong>4、西域佳果——石榴</strong>
-				<p>石榴本是西域特产，自汉代时传入中原。石榴味甘酸、涩温，能够有效的抗氧化，减少体内沉积的氧化胆固醇，延缓衰老，而且对于初秋的咽喉燥渴很有疗效。</p>
-				<strong>5.干果之王——板栗</strong>
-				<p>板栗，性味甘温，入脾、胃、肾三经，可以养胃、健脾、补肾、壮腰、强筋、活血、止血、消肿等。栗子中还含有丰富的不饱和脂肪酸、维生素及矿物质，可抵御骨质疏松，高血压等疾病。清爽秋季多食些板栗可是不错的选择！</p>
-				<strong>6、 维C之王——猕猴桃</strong>
-				<p>猕猴桃得名于猕猴对它的喜爱，其维生素C的含量极高。另外此果还含有血清促进素，可以帮助我们稳定情绪、镇静心情;丰富的膳食纤维能够促进心脏健康、帮助消化。猕猴桃性酸，味甘寒，还具有生津润燥，解热除烦的功效，也是秋季水果的及佳之选!</p>
-				<strong>7、天堂之果——橄榄</strong>
-				<p>这是土耳其人对橄榄的赞誉。橄榄的果肉富含钙质，新鲜食用对人体颇为有益。橄榄味甘酸、性平，可以清热解毒、消积化痰，滋润肺喉，尤为适合秋冬食用。</p>
-			        </div>
-			</li>
-			<li><div class="health-text">
-				<p><strong> 运动强度：</strong>每分鐘最大心跳數 = 【(220 - 年齡) - 休息時分鐘心跳數】X 75% + 休息時分鐘心跳數</p><br />
-				<p>运动持续时间：連續運動時間的長短。根據專家的分析，運動持續時間以三十分鐘最為適當。不過，也必須考慮以運動強度來作適當調整，所以，十五至六十分鐘都是合理的运动频率:每星期運動的次數(天數)。為了要達到夠水準的體能，必須從事規律、有恒的運動。運動不可只限於每週的體育課及週末休閒活動。每週如能實施三次持續三十分鐘以上的運動，且能達到運動時間的理想心跳數 </p><br />
-				<p>為維持良好的體適能以提高現代人的生活品質，建議成年人應維持一週3-5次，每次至少持續20-30分鐘的有氧性運動；以及至少一週2-3次的重量訓練來加強 體適能的能力。</p>
-				<h3>柔软度</h3>
-				<p>指關節在可動範圍內作移動的能力．柔軟度對傷害的預防和維持身體的可動性是很重要的．可經由伸展和瑜珈來加強此一功能柔軟度改善。柔軟度佳關節活動範圍大，減少肌肉僵硬、肌肉酸痛的情況，讓身心放鬆，降低受傷的可能性。表演舞蹈動作或日常生活，動作優雅平衡。</p><br />
-				<strong>柔軟度(Flexibility)訓練</strong>
-							功能：避免受傷、增加敏捷性、紓解壓力，促進放鬆 、動作範圍度.
-							種類：伸展運動、瑜伽、太極等。
-				<h3>有氧（心肺)功能</h3>
-				<p>是指運動中，心臟、肺臟和血液用來輸送養份和氧氣到所使用肌群和組織，及排除在新陳代謝時所產生廢棄物的能力。心肺耐力：為心肺功能之指標，心肺功能良好的人就會充滿活力，精神充沛。規律性且強度適中的有氧性運動（如慢跑、游泳、和騎自行車）是強化心肺適能的最佳方式
-				<strong>心肺功能训练</strong>
-				<p>功能：燃燒卡路里，減輕體重 、鍛練心肺、紓解壓力增進日常活動的耐力
-							種類：跑步機、腳踏車、階梯機、跳繩、高低衝擊有氧、飛輪有氧、Step階梯有氧、戰鬥有氧。</p>
-	          		       </div>
-			</li>
-		          <li>
-				<div class="health-text">
-					<h3>疗愈</h3>
-					<p>1、小企鹅有一天问他奶奶，“奶奶奶奶，我是不是一只企鹅啊？”“是啊，你当然是企鹅。”小企鹅又问爸爸，“爸爸爸爸，我是不是一只企鹅啊？”“是啊，你是企鹅啊，怎么了?”“可是，可是我怎么觉得那么冷呢？” </p>
-					<p>2、有一个躲猫猫社团，他们团长现在还没找到. </p>
-					<p>3、飞机上，一位空中小姐问一个小女孩说:“为什么飞机飞这么高都不会撞到星星呢?“小女孩回答到:“我知道，因为星星会’闪’啊!“ </p>
-					<p>4、有一对玉米相爱了 
-						于是它们决定结婚 
-						结婚那天 
-						一个玉米找不到另一个玉米了 
-						这个玉米就问身旁的爆米花：你看到我们家玉米了吗。 
-						爆米花：亲爱的，人家穿婚纱了嘛 </p>
-					<h3 >心理暗示</h3>
-					<p>1、当你对某件事情抱着百分之一万的相信，它最后就会变成事实。</p>
-					<strong>2、期望定律</strong> 
-					<p>期望定律告诉我们，当我们怀着对某件事情非常强烈期望的时候，我们所期望的事物就会出现.</p>
-					<strong>3、情绪定律</strong> 
-					<p>情绪定律告诉我们，人百分之百是情绪化的。即使有人说某人很理性，其实当这个人很有"理性"地思考问题的时候，也是受到他当时情绪状态的影响，"理性地思考"本身也是一种情绪状态。所以人百分之百是情绪化的动物，而且任何时候的决定都是情绪化的决定.</p>
-					<strong>4、因果定律</strong>
-					<p>任何事情的发生，都有其必然的原因。有因才有果。换句话说，当你看到任何现象的时候，你不用觉得不可理解或者奇怪，因为任何事情的发生都必有其原因。你今天的现状结果是你过去种下的因导致的结果.</p>
-					<strong>5、吸引定律</strong>
-					<p>当你的思想专注在某一领域的时候，跟这个领域相关的人、事、物就会被你吸引而来。</p>
-					</div>
-				</li>
-			</ul>
+	<div class="span5" >
+		<div id="myCarousel" class="carousel">
+			<!-- Carousel items -->
+			<div class="carousel-inner">
+				<div class="active item"><img src="/assets/psy1.jpg"></div>
+				<div class="item"><img src="/assets/food1.jpg"></div>
+				<div class="item"><img src="/assets/spo1.jpg"></div>
+				<div class="item"><img src="/assets/dis1.jpg"></div>
+				<div class="item"><img src="/assets/food2.jpg"></div>
+				<div class="item"><img src="/assets/dis2.jpg"></div>
+				<div class="item"><img src="/assets/spo2.png"></div>
+			</div>
+  		<!-- Carousel nav -->
+		<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  		<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 		</div>
 	</div>
-</form>
+	<div class="span5">
+		<!-- some tips are here -->
+	</div>
+</div>
+<div class="row-fluid">
+	<div class="span2" >
+		
+	</div>
+	<div class="span10">
+		<!-- new posts from four types-->
+	</div>
+</div>

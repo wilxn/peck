@@ -2,10 +2,9 @@ body{
 	background-color: #EEEEFF;
 	border-left-style: solid ;
 	border-right-style: solid ;
+	border-bottom-style: solid;
 	border-color:rgba(60,0,0,0.2);
-	border-width: 2.5px;
-	border-radius: 15px;
-	width:1000px;
+	width:1200px;
 	padding-bottom: 5em;
 	margin:50px auto 0;	
 	margin-top: 0px;
@@ -24,6 +23,7 @@ a{
 	background-image: url("/assets/bk_header.jpg");
 	background-attachment: scroll;
 	background-repeat: repeat-x;
+
 }
 h1#mainname a{
 	color: #003376;
@@ -263,7 +263,7 @@ div.diagnose{
 	-webkit-transition: all .3s;  
 	-moz-transition: all .3s;  
 	-o-transition: all .3s;  
-	width: 150px;  
+	width: 150px; 
 
 }
 .search_first:focus{  
@@ -344,16 +344,24 @@ div.diagnose{
  	margin-top: 10px;
  	padding: 7px 0.25em 2em 20%;
  	border-style: solid;
- 	border-color: red;
+ 	border-color: #FABDA1;
+ 	border-radius: 5px;
  }
  #ask_sym p{
- 	color: red;
- 	font-size: 140%;
+ 	color: #086CA2;
+ 	font-size: 110%;
+
  }
  #ask_sym h1{
- 	font-size: 200%;
+ 	font-size: 140%;
  	text-indent: 5em;
+ 	color: #1826B0;
  	}
+ .notice{
+ 	color: #A67900;
+ 	text-align: center;
+ 	font-weight: 700;
+ }
 .yes-or-no{
  	border-radius: 1em;
  	display: inline-block;
