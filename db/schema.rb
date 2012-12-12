@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20123024720493) do
+ActiveRecord::Schema.define(:version => 20123024720496) do
 
   create_table "diseases", :force => true do |t|
     t.string "name"
@@ -34,6 +34,11 @@ ActiveRecord::Schema.define(:version => 20123024720493) do
     t.string   "hashed_password"
     t.string   "salt"
     t.string   "email"
+  end
+
+  create_table "foods", :force => true do |t|
+    t.integer "disease_id"
+    t.text    "foodcontent"
   end
 
   create_table "informs", :force => true do |t|
@@ -80,6 +85,16 @@ ActiveRecord::Schema.define(:version => 20123024720493) do
   create_table "news", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "psies", :force => true do |t|
+    t.integer "disease_id"
+    t.text    "psycontent"
+  end
+
+  create_table "sports", :force => true do |t|
+    t.integer "disease_id"
+    t.text    "sportcontent"
   end
 
 end

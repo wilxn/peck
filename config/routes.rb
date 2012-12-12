@@ -1,49 +1,43 @@
 Peck321::Application.routes.draw do
-  
+  get 'diseases/indexer'
+  get 'medicine/index'
+  get 'health/index'
   resources :informs
-
-  resources :judgements
   resources :diseases
+  resources :judgements
   resources :doctors,:men
   controller :doctors do
   get 'search_list' => :search_list,:as => :search_list
   end
   controller :diseases do
-    get 'indexer' => :indexer,:as => :indexer
+    get 'indexer' => :indexer
     get 'previous' => :previous,:as => :previous
     get 'next' => :next, :as => :next
     get 'initpage' => :initpage,:as => :initpage
     get 'yes' => :yes
     get 'no' => :no
     get 'research' => :research,:as => :research
+    get 'getsport' => :getsport,:as => :getsport
   end
   controller :medicine do
     get 'index' => :index,:as => :index
   end
-  get 'diseases/yes'
+ 
   get "doctors/edit"
   get 'admin' => 'admin#index'
   post 'men/new'
-
+  controller :health do
+    get 'index'
+  end
   controller :sessions do
     get 'login' => :new
     post 'login' => :create
     delete 'logout' => :destroy
   end
   post "diseases/search"
-  get "user/index"
-  get "user/medicine"
-  get "user/rank"
-  get "user/diagnose"
-  get "user/evaluate"
-  get "user/health"
-  get "user/contact_us"
-  get "user/jobs"
-  get "user/doctor"
-  get "user/register"
-  get "user/log_in"
+  get "diseases/getsport"
 
-  root :to => 'user#index', :as => 'user'
+  root :to => 'home#index', :as => 'user'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

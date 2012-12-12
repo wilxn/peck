@@ -1,5 +1,9 @@
 class Disease < ActiveRecord::Base
   has_many :keyword
+  has_many :sport
+  has_many :food
+  has_many :psy
+  
   def Disease.getDiseasebyId(id)
     disease = find_by_id(id)
     disease

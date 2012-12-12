@@ -1,0 +1,2 @@
+class PsyController < ApplicationController
+end

@@ -1,5 +1,10 @@
 require 'will_paginate/array'
 class DiseasesController < ApplicationController
+  def getsport
+    debugger
+    @disease = Disease.getDiseasebyId(1)
+    @sport = @disease.sport
+  end
   def initpage
     cookies[:current_page] = 1
     cookies[:search] = params[:search]
