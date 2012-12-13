@@ -1,5 +1,6 @@
 Peck321::Application.routes.draw do
   get 'diseases/indexer'
+  get 'home/index'
   get 'medicine/index'
   get 'health/index'
   resources :informs
@@ -20,7 +21,7 @@ Peck321::Application.routes.draw do
     get 'getsport' => :getsport,:as => :getsport
   end
   controller :medicine do
-    get 'index' => :index,:as => :index
+    get 'index' => :index
   end
  
   get "doctors/edit"
@@ -37,7 +38,7 @@ Peck321::Application.routes.draw do
   post "diseases/search"
   get "diseases/getsport"
 
-  root :to => 'home#index', :as => 'user'
+  root :to => 'home#index', :as => 'index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
