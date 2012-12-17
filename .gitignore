@@ -6,7 +6,10 @@
 
 # Ignore bundler config
 /.bundle
-
+solr/data
+sol/pids
+public/assets/
+.sass-cache/
 # Ignore the default SQLite database.
 /db/*.sqlite3
 

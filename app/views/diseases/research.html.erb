@@ -23,11 +23,6 @@
     </div>
   </div>
       <% end %>
-          <% if flash[:notice] %>
-          <div class="row-fluid">
-    <div class="notice span6 offset2"><%= flash[:notice] %></div>
-    <% end %>
-  </div>
     <ul>
       <label>找到约<%= @totals %>个结果</label>
       <% if @results != nil 

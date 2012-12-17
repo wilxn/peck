@@ -1,0 +1,23 @@
+<div class="container">
+  <%= link_to "个人信息",@user %>
+  <%= link_to "帖子", "/users/topics?userId=#{@user.id}" %>
+  <%= link_to "收藏", "/users/favorites?userId=#{@user.id}"  %>
+  <div class="">
+  	<table class="table table-striped">
+  		<tr>
+  			<th>分类</th>
+  			<th>标题</th>
+  			<th>浏览/回复/喜欢</th>
+  		</tr>
+  		<% @topics.each do |t| %>
+  		<tr>
+  			<td><%= t.node.name %></td>
+  			<td><%= link_to t.title,t %></td>
+  			<td></td>
+  		</tr>
+  		<% end %>
+  	</table>
+    <%= will_paginate @topics %>
+  </div>
+</div>
+

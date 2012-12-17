@@ -1,28 +1,18 @@
-class SessionsController < ApplicationController
+class SessionsController < Devise::SessionsController
+
   def new
+    super
+    session["user_return_to"] = request.referrer
   end
 
   def create
-	      man = Man.authenticate(params[:name],params[:password])
-          if man
-		  session[:man_id] = man.id
-		  if Man.checkIsDoctor(params[:name]) == false
-		  redirect_to user_url
-		  else
-            # man = Man.getManbyId(params[:man_id])
-            # doctor_id = Man.getDoctor_id(params[:man_id])
-		    #doctor = Doctor.getDoctorbyName(doctor_id)
-		    # redirect_to doctors_url(:domain => "edit/com", :doctor => doctor) 
-              redirect_to user_url
-		  end
-	  else
-		  redirect_to login_url,:alert => "Invalid man/password combination"
-	  end
-  end
-
-  def destroy
-	  session[:man_id] = nil
-	  redirect_to users_url, :notict => "Logged out"
+    resource = warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#new")
+    set_flash_message(:notice, :signed_in) if is_navigational_format?
+    sign_in(resource_name, resource)
+    respond_to do |format|
+      format.html { redirect_to after_sign_in_path_for(resource) }
+      format.json { render :status => '201', :json => resource.as_json(:only => [:login, :email, :private_token]) }
+    end
   end
 
 end

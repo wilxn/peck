@@ -6,9 +6,8 @@
   <%= stylesheet_link_tag "peck" ,:media => "all" %>
   <%= stylesheet_link_tag "bootstrap",:media => "all" %>
   <%= javascript_include_tag "bootstrap","scrollText"%>
-   <!-- <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" %> 
-  <!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script>  -->
-  <%= csrf_meta_tag %> 
+  <%= csrf_meta_tag %>
+   
   <script type="text/javascript">
    // $(document).ready(function(){ alert("警告的信息jj");}); 
   </script>
@@ -17,23 +16,40 @@
   <div class="container-fluid">
     <div class = "row-fluid" >
       <div class="span2" style="margin-top:20px">
-          <a href="/user/index"><img src="/assets/Tpeck.png" height=133 width=100 alt="Peck"></a>
+          <a href="/home/index"><img src="/assets/Tpeck.png" height=133 width=100 alt="Peck"></a>
         </div>
         <div class="span10">
-          <div class="span9">
+          <div class="span4">
             <h3>为您提供科学、贴心的服务</h3>
             <p>指引您远离疾病问题，健康生活。</p>
           </div>
+          <div class="span4 offset1" style = "margin-top:20px; font-weight:bold">
+          <p style="color:#F79283"><%= notice %></p>
+          <p style="color:#F79283"><%= alert %></p>
+        </div>
           <div class="span1 offset1" style="background-color:red;margin-top:20px;">
             <div class="btn-group">
-              <a class="btn btn-primary" href="/login"><i class="icon-user icon-white"></i>登录</a>
+              
+                <% if current_user %>
+                <a class="btn btn-primary" href="##"><i class="icon-user icon-white"></i><%= current_user.login %></a>
               <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="/men/new"><i class="icon-chevron-right"></i>注册</a></li>
-                  <li><a href="#"><i class="icon-chevron-left"></i>登出</a></li>
-                  <li class="divider"></li>
-                  <li><a href="http://blog.wilxn.org"><i class="i"></i>博客</a></li>
+                <li><%= link_to "个人主页",current_user %></li>
+                <li class="divider"></li>
+                <li><a href="/users/edit"><i class="icon-edit"></i>个人信息设置</a></li>
+                  <li><a href="/account/sign_out"><i class="icon-chevron-left"></i>登出</a></li>
+                  <li><a href="http://blog.wilxn.org"><i class="icon-home"></i>博客</a></li>
                 </ul>
+                  <% else %>
+                  <a class="btn btn-primary" href="/account/sign_in"><i class="icon-user icon-white"></i>登录</a>
+              <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                  <li><a href="/account/sign_up"><i class="icon-chevron-right"></i>注册</a></li>
+                  <li class="divider"></li>
+                  <li><a href="http://blog.wilxn.org"><i class="icon-home"></i>博客</a></li>
+                </ul>
+                  <% end %>
+                  
               </div>
           </div>
         </div>
@@ -52,6 +68,6 @@
      <div class="all-body">
       <%= yield %>
     </div>
-</div>
+    </div>
 </body>
 </html>

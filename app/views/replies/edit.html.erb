@@ -1,0 +1,30 @@
+<div class="row-fluid" style="margin-top:60px">
+<div class="span2">
+		<ul class="nav nav-tabs nav-stacked" >
+			<li><a href="#">新闻</a></li>
+			<li><a href="/topics">话题</a></li>
+			<li><a href="/users">会员</a></li>
+		</ul>
+	</div>
+	<div class="span9">
+	<div class = "row-fluid">
+	  <div class="span9">
+	<%= simple_form_for([@topic,@reply]) do |f| %>
+	<fieldset>
+		<legend>编辑回复</legend>
+		<%= f.text_area :body ,:class=>"span12",:rows =>"6" %>
+		</fieldset>
+	  </div>
+           </div>
+           <div class="row-fluid">
+           	<div class="span3">
+           	<%= f.submit "保存",:class => "btn btn-primary" %>
+		<a href="<%= topic_path(@reply.topic_id) %>"  class="btn">取消</a>	
+           	</div>
+          		<% end %>
+           	<div class="span1">
+           		<%= button_to "delete",@reply,:method => :delete,:class => "btn" %>
+           	</div>
+           </div>
+</div>
+</div>

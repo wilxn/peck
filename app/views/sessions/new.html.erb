@@ -4,31 +4,16 @@
 	width:500px;
 }
 </style>
-<div class="man_form">
-	<div id="main">
-		<div class="clear"></div>
+<div class="container">
+<div class="">
 	<% if flash[:alert] %>
 		<p id="notice"><%= flash[:alert] %></p>
 	<% end %>
-    
-	<%= form_tag   do %>
-		<fieldset>
-			<legend>Please Log In</legend>
-
-			<div>
-				<label for="name">用户名:</label>
-				<%= text_field_tag :name,params[:name] %>
-			</div>
-
-			<div>
-				<label for="password">密码:</label>
-				<%= password_field_tag :password,params[:password] %>
-              </div>
-
-			<div>
-				<%= submit_tag "Login" %>
-			</div>
-		</fieldset>
-	<% end %>
-</div>
-</div>
+          <%= simple_form_for(resource,:as => resource_name,:url => session_path(resource_name)) do |f| %>
+          <%= f.input :email,:required => false,:autofocus => true %>
+          <%= f.input :password, :required => false %>
+          <%= f.input :remember_me,:as => :boolean if devise_mapping.rememberable? %>
+          <%= f.button :submit,"sign in" %>
+          <% end %>
+        </div>
+      </div>

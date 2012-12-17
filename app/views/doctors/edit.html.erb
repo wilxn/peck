@@ -44,6 +44,12 @@
 
 <% end %>
 </fieldset>
+<%= simple_form_for @doctor do |f| %>
+  <%= f.input :username %>
+  <%= f.input :password %>
+  <%= f.input :introduction %>
+  <%= f.button :submit %>
+<% end %>
 
 <%= link_to 'Show', @doctor %> |
 <%= link_to 'Back', doctors_path %>

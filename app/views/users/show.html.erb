@@ -1,0 +1,95 @@
+<div class="row-fluid" style = "margin-top:60px">
+<div class="span2">
+    <ul class="nav nav-tabs nav-stacked" >
+      <li><a href="#">新闻</a></li>
+      <li><a href="/topics">话题</a></li>
+      <li><a href="/users">会员</a></li>
+    </ul>
+  </div>
+  <div class="span10">
+  <%= link_to "个人信息",@user %>
+  <%= link_to "帖子", "/users/topics?userId=#{@user.id}" %>
+  <%= link_to "收藏", "/users/favorites?userId=#{@user.id}"  %>
+  <hr >
+  <fieldset>
+    <legend>基本信息</legend>
+    <div class="form-horizontal" >
+    <div class="control-group">
+    <div class="control-label">
+      <label>昵称:</label>
+    </div>
+    <div class= "controls">
+     <%= @user.login%>
+    </div>
+    </div>
+    <div class="control-group">
+    <div class="control-label">
+      <label>真实姓名:</label>
+    </div>
+    <div class= "controls">
+     <%= @user.name %>
+    </div>
+    </div>
+    <div class="control-group">
+    <div class="control-label">
+       <label>邮箱:</label>
+    </div>
+    <div class= "controls">
+      <%= @user.email %>
+    </div>
+    </div>
+    <div class="control-group">
+    <div class="control-label">
+      <label>签名:</label>
+    </div>
+    <div class= "controls">
+      <%= @user.tagline %>
+    </div>
+    </div>
+    <div class="control-group">
+    <div class="control-label">
+      <label>地区：</label>
+    </div>
+    <div class= "controls">
+     <%= @user.location %>
+    </div>
+    </div>
+    <div class="control-group">
+    <div class="control-label">
+      <label>公司:</label>
+    </div>
+    <div class= "controls">
+      <%= @user.company %>
+    </div>
+    </div>
+    <div class="control-group">
+    <div class="control-label">
+      <label>Since:</label>
+    </div>
+    <div class= "controls">
+     <%= @user.created_at %>
+    </div>
+    </div>
+  </div>
+  </fieldset>
+    <fieldset>
+    <legend>我发布的帖子</legend>
+    <ul>
+      <% if @topics != [] %>
+      <% @topics.each do |item| %>
+        <li><%= link_to item.title,item %></li>
+      <% end %>
+      <% end %>
+    </ul>
+  </fieldset>
+    <fieldset>
+    <legend>最近回复的帖子</legend>
+    <ul>
+      <% @replies.each do |reply| %>
+      <li><%= link_to reply.topic.title,reply.topic %></li>
+      <% end %>
+    </ul>
+  </fieldset>
+</div>
+</div>
+</div>

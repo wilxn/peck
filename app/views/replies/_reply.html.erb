@@ -1,0 +1,11 @@
+<span class="name">
+	<%= reply.user.login %>
+	<%= @reply_counter %>楼,<%= reply.created_at %>
+	<% if current_user == reply.user %>
+	<%= link_to "edit", edit_topic_reply_path(@topic,reply) ,:class => "btn btn-link"%>
+<% end %>
+</span>
+<div class="body">
+	<%= reply.body %>
+</div>
+

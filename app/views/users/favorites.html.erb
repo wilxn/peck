@@ -1,0 +1,5 @@
+  <div class="container">
+  <%= link_to "个人信息",@user %>
+  <%= link_to "帖子", "/users/topics?userId=#{@user.id}" %>
+  <%= link_to "收藏", "/users/favorites?userId=#{@user.id}"  %>
+</div>

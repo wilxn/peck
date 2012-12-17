@@ -1,15 +1,41 @@
 Peck321::Application.routes.draw do
+  devise_for :users, :path => "account", :controllers => {
+    :registrations => :account,
+    :sessions => :sessions
+  }
+  get 'topics/index'
   get 'diseases/indexer'
   get 'home/index'
   get 'medicine/index'
   get 'health/index'
+  get 'users/topics'
+  get 'users/show'
+  get 'users/edit'
+  get 'users/favorites'
+  resources :replies
   resources :informs
   resources :diseases
   resources :judgements
-  resources :doctors,:men
+  resources :doctors
   controller :doctors do
   get 'search_list' => :search_list,:as => :search_list
   end
+  controller :topics do
+    get 'topics' => :index
+  end
+  controller :users do
+    get 'users' => :index
+  end
+  resources :topics do
+    member do
+      post :reply
+    end
+    resources :replies
+  end
+  resources :users do
+    resources :topics
+  end
+
   controller :diseases do
     get 'indexer' => :indexer
     get 'previous' => :previous,:as => :previous
@@ -23,24 +49,21 @@ Peck321::Application.routes.draw do
   controller :medicine do
     get 'index' => :index
   end
- 
+  get "nodes/show"
   get "doctors/edit"
   get 'admin' => 'admin#index'
-  post 'men/new'
   controller :health do
     get 'index'
   end
-  controller :sessions do
-    get 'login' => :new
-    post 'login' => :create
-    delete 'logout' => :destroy
-  end
   post "diseases/search"
   get "diseases/getsport"
-
   root :to => 'home#index', :as => 'index'
+  get 'users/index'
+  get 'users/show'
+  get 'users/topics'
+  resources :users
 
-  # The priority is based upon order of creation:
+    # The priority is based upon order of creation:
   # first created -> highest priority.
 
   # Sample of regular route:

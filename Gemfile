@@ -10,6 +10,12 @@ gem 'sunspot_rails'
 group :development do
   gem 'sunspot_solr'
 end
+
+gem 'devise','2.1.0'
+gem 'devise-encryptable'
+
+gem 'simple_form',"2.0.2"
+
 gem 'progress_bar'
 gem "twitter-bootstrap-rails"
 # Gems used only for assets and not required

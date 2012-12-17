@@ -1,0 +1,41 @@
+	<div class="row-fluid" style="margin-top:60px">
+	<div class="span2">
+		<ul class="nav nav-tabs nav-stacked" >
+			<li><a href="#">新闻</a></li>
+			<li><a href="/topics">话题</a></li>
+			<li><a href="/users">会员</a></li>
+		</ul>
+	</div>
+	     <div class="span10">
+	     <div class="span7">
+	     	<div class="topics">
+		<ul>
+		<% if @topics != [] %>
+		<% @topics.each do |t| %>
+		        <li><%= link_to t.title,t %></li>
+		<% end %>
+		<% end %>
+		</ul>
+		</div>
+		<div class="nodes">
+		</div>
+	      </div>
+	      <div class="span3">
+	      	<%= link_to "发布新帖",new_topic_path  ,:class => "btn btn-primary" %>
+	      </div>
+		<div class="row-fluid">		
+		<div class="span10">
+			<% if @section !=  nil %>
+			<% @section.each do |s| %>
+			<%= s.name %>
+			<% if s.nodes != nil %>
+			<% s.nodes.each do |node| %>
+			<li><%= link_to node.name,"/nodes/show?nodeId=#{node.id}" %></li>
+			<% end %>
+			<% end %>
+			<% end %>
+			<% end %>
+		</div>		
+	</div>
+</div>
+</div>

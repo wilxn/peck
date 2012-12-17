@@ -1,0 +1,21 @@
+<div class="row-fluid" style = "margin-top:60px">
+<div class="span2">
+		<ul class="nav nav-tabs nav-stacked" >
+			<li><a href="#">新闻</a></li>
+			<li><a href="/topics">话题</a></li>
+			<li><a href="/users">会员</a></li>
+		</ul>
+	</div>
+	<div class="span10">
+  <div >目前共有<%= @total_user_count %> 位用户
+  <div >
+    <h3>用户:</h3>
+    <% @users.each do |user| %>
+    <li><%= link_to user.login,user %></li>
+    <% end %>
+      <div class="span1">
+      </div>
+  </div>
+</div>
+</div>
+</div>

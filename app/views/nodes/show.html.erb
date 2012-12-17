@@ -1,0 +1,20 @@
+<div class="row-fluid" style = "margin-top:60px">
+<div class="span2">
+		<ul class="nav nav-tabs nav-stacked" >
+			<li><a href="#">新闻</a></li>
+			<li><a href="/topics">话题</a></li>
+			<li><a href="/users">会员</a></li>
+		</ul>
+	</div>
+	<div class="span10">
+	<ul>
+	<% if @topics != [] %>
+	<% @topics.each do |t| %>
+		        <li><%= link_to t.title,t %></li>
+	<% end %>
+	<% else %>
+	<h4 style="color:#498A60">还没有人谈论过当前话题。<%= link_to "返回",'/topics',:class => "btn btn-success btn-small" %></h4>
+	<% end %>
+	</ul>
+</div>
+	
